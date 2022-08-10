@@ -67,6 +67,7 @@ function reducer(state, action) {
 
 			item.isEditing = false;
 			item.isDeleting = false;
+			item.isProcessing = false;
 			item.message = message;
 			item.article = originalItem.article;
 			item.singular = originalItem.singular;
@@ -74,13 +75,20 @@ function reducer(state, action) {
 			break;
 		case 'askIfSureForDelete':
 			item = action.payload.item;
-			
+
 			item.isDeleting = true;
 			break;
 		case 'deleteItem':
 			item = action.payload.item;
-			
-			_state.germanNouns = [...state.germanNouns.filter(m => m.id !== item.id)];
+
+			_state.germanNouns = [
+				...state.germanNouns.filter((m) => m.id !== item.id),
+			];
+			break;
+		case 'turnOnProcessingStatus':
+			item = action.payload.item;
+
+			item.isProcessing = true;
 			break;
 	}
 	return _state;
@@ -91,16 +99,19 @@ export const AppProvider = ({ children }) => {
 
 	useEffect(() => {
 		(async () => {
-			const _germanNouns = (
-				await axios.get(`${baseUrl}/germanNouns`)
-			).data;
-			_germanNouns.forEach((noun) => {
-				noun.isEditing = false;
-				noun.isDeleting = false;
-				noun.message = '';
-				noun.originalItem = { ...noun };
+			const _germanNouns = (await axios.get(`${baseUrl}/germanNouns`))
+				.data;
+			_germanNouns.forEach((item) => {
+				item.isEditing = false;
+				item.isDeleting = false;
+				item.isProcessing = false;
+				item.message = '';
+				item.originalItem = { ...item };
 			});
-			dispatchCore({ type: 'loadGermanNouns', payload: { germanNouns: _germanNouns } });
+			dispatchCore({
+				type: 'loadGermanNouns',
+				payload: { germanNouns: _germanNouns },
+			});
 		})();
 	}, []);
 
@@ -117,6 +128,10 @@ export const AppProvider = ({ children }) => {
 		}
 		switch (action.type) {
 			case 'saveItem':
+				dispatchCore({
+					type: 'turnOnProcessingStatus',
+					payload: { item },
+				});
 				try {
 					const response = await axios.put(
 						`${baseUrl}/germanNouns/${item.id}`,
@@ -141,6 +156,10 @@ export const AppProvider = ({ children }) => {
 				}
 				break;
 			case 'deleteItem':
+				dispatchCore({
+					type: 'turnOnProcessingStatus',
+					payload: { item },
+				});
 				try {
 					const response = await axios.delete(
 						`${baseUrl}/germanNouns/${item.id}`,

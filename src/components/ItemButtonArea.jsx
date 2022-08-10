@@ -5,6 +5,7 @@ export const ItemButtonArea = ({ item, dispatch }) => {
 				{!item.isEditing && !item.isDeleting && (
 					<>
 						<button
+							disabled={item.isProcessing}
 							onClick={() =>
 								dispatch({
 									type: 'toggleEditStatus',
@@ -14,13 +15,24 @@ export const ItemButtonArea = ({ item, dispatch }) => {
 						>
 							Edit
 						</button>
-						<button onClick={() => dispatch({type: 'askIfSureForDelete', payload: {item}})}>Delete</button>
-						<button>Add</button>
+						<button
+							disabled={item.isProcessing}
+							onClick={() =>
+								dispatch({
+									type: 'askIfSureForDelete',
+									payload: { item },
+								})
+							}
+						>
+							Delete
+						</button>
+						<button disabled={item.isProcessing}>Add</button>
 					</>
 				)}
 				{item.isEditing && (
 					<>
 						<button
+							disabled={item.isProcessing}
 							onClick={() =>
 								dispatch({
 									type: 'cancelEditStatus',
@@ -31,18 +43,22 @@ export const ItemButtonArea = ({ item, dispatch }) => {
 							Cancel
 						</button>
 						<button
+							disabled={item.isProcessing}
 							onClick={() =>
 								dispatch({
 									type: 'saveItem',
 									payload: { item },
 								})
 							}
-						>Save</button>
+						>
+							Save
+						</button>
 					</>
 				)}
 				{item.isDeleting && (
 					<>
 						<button
+							disabled={item.isProcessing}
 							onClick={() =>
 								dispatch({
 									type: 'cancelDeleteStatus',
@@ -53,13 +69,16 @@ export const ItemButtonArea = ({ item, dispatch }) => {
 							Cancel
 						</button>
 						<button
+							disabled={item.isProcessing}
 							onClick={() =>
 								dispatch({
 									type: 'deleteItem',
 									payload: { item },
 								})
 							}
-						>Yes, delete item!</button>
+						>
+							Yes, delete item!
+						</button>
 					</>
 				)}
 			</div>

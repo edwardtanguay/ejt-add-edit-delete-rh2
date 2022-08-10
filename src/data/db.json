@@ -1,12 +1,6 @@
 {
   "germanNouns": [
     {
-      "id": 2,
-      "article": "das",
-      "singular": "Interface",
-      "plural": "die Interfaces"
-    },
-    {
       "id": 3,
       "article": "der",
       "singular": "Workshop",
