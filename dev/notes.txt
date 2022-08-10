@@ -1,0 +1,13 @@
+- x get edit button to work
+- x create Row component and pass parameters
+- x when edit button clicked
+	- x show input fields, hide text fields
+	- x hide edit/delete/add buttons
+	- x show clear/save buttons
+- x handle clear button
+- x solve key error 
+- x handle save button
+- x url as variable
+- .. handle delete button
+
+- enable only one item to be edited/delete/added at one time
