@@ -7,7 +7,7 @@ export const AppContext = createContext();
 
 const initialState = {
 	count: 0,
-	germanNouns: ['nnn'],
+	germanNouns: [],
 };
 
 function reducer(state, action) {
@@ -60,12 +60,13 @@ function reducer(state, action) {
 			item.isEditing = false;
 			item.message = '';
 			break;
-		case 'handleFailedSave':
+		case 'handleFailure':
 			item = action.payload.item;
 			originalItem = item.originalItem;
 			message = action.payload.message;
 
 			item.isEditing = false;
+			item.isDeleting = false;
 			item.message = message;
 			item.article = originalItem.article;
 			item.singular = originalItem.singular;
@@ -125,7 +126,7 @@ export const AppProvider = ({ children }) => {
 						dispatchCore(action);
 					} else {
 						dispatchCore({
-							type: 'handleFailedSave',
+							type: 'handleFailure',
 							payload: {
 								item,
 								message: `API Error: ${response.status}`,
@@ -134,7 +135,31 @@ export const AppProvider = ({ children }) => {
 					}
 				} catch (err) {
 					dispatchCore({
-						type: 'handleFailedSave',
+						type: 'handleFailure',
+						payload: { item, message: `Error: ${err.message}` },
+					});
+				}
+				break;
+			case 'deleteItem':
+				try {
+					const response = await axios.delete(
+						`${baseUrl}/germanNouns/${item.id}`,
+						backendItem
+					);
+					if ([200, 201].includes(response.status)) {
+						dispatchCore(action);
+					} else {
+						dispatchCore({
+							type: 'handleFailure',
+							payload: {
+								item,
+								message: `API Error: ${response.status}`,
+							},
+						});
+					}
+				} catch (err) {
+					dispatchCore({
+						type: 'handleFailure',
 						payload: { item, message: `Error: ${err.message}` },
 					});
 				}

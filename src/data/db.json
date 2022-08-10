@@ -1,12 +1,6 @@
 {
   "germanNouns": [
     {
-      "id": 1,
-      "article": "die",
-      "singular": "Notiz",
-      "plural": "die Notizen"
-    },
-    {
       "id": 2,
       "article": "das",
       "singular": "Interface",
