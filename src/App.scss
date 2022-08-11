@@ -51,11 +51,15 @@ body {
 			border: 1px solid #666;
 			color: rgb(226, 226, 144);
 			max-width: 38rem;
+			border-radius: 5px;
 
 			legend {
 				font-size: 1rem;
 				color: #aaa;
 				font-family: monospace;
+					background-color: rgb(74, 73, 73);
+					border-radius: 5px;
+					padding: 5px 10px;
 			}
 
 			.row {
@@ -92,6 +96,8 @@ body {
 				display: flex;
 				justify-content: space-between;
 				margin-top: 1rem;
+				border-radius: 5px;
+
 
 				.message {
 					color: #aaa;
