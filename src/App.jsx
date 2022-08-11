@@ -23,7 +23,7 @@ function App() {
 			<hr />
 			<p>There are {state.germanNouns.length} nouns.</p>
 			<div className="germanNounArea">
-				<ItemAddBox />
+				{state.isAdding && <ItemAddBox/>}
 				{state.germanNouns.map((item) => {
 					return (
 						<fieldset className="germanNoun" key={String(item.id)}>

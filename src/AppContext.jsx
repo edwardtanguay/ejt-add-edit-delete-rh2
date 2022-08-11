@@ -8,7 +8,13 @@ export const AppContext = createContext();
 const initialState = {
 	count: 0,
 	germanNouns: [],
-	isAdding: false
+	isAdding: false,
+	addItem: {
+		article: '',
+		singular: '',
+		plural: ''
+	},
+	addMessage: ''
 };
 
 function reducer(state, action) {
