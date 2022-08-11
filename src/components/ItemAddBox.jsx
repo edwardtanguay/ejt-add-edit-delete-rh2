@@ -4,19 +4,19 @@ import { AppContext } from '../AppContext';
 import { GermanNounFormRow } from './GermanNounFormRow';
 
 export const ItemAddBox = () => {
-	const { state, dispatch } = useContext(AppContext);
+	const { state, dispatch, firstAddInputBox } = useContext(AppContext);
 
 	const item = state.addItem;
 
 	return (
 		<fieldset className="germanNoun addBox">
 			<legend>New German Noun</legend>
-
 			<GermanNounFormRow
 				item={item}
 				label="Article"
 				variable="article"
 				isAdding={true}
+				theRef={firstAddInputBox}
 			/>
 
 			<GermanNounFormRow

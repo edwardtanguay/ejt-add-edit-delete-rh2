@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { AppContext } from '../AppContext';
 
 export const ItemButtonArea = ({ item }) => {
-	const { state, dispatch } = useContext(AppContext);
+	const { state, dispatch, firstAddInputBox } = useContext(AppContext);
 
 	const handleAddClick = () => {
 		window.scrollTo({
@@ -13,6 +13,9 @@ export const ItemButtonArea = ({ item }) => {
 			type: 'beginAddingItem',
 			payload: { item },
 		});
+		setTimeout(() => {
+			firstAddInputBox.current.focus();
+		}, 500);
 	};
 
 	return (

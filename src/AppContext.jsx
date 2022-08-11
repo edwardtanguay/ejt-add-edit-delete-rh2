@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from 'react';
+import { createContext, useReducer, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 const baseUrl = 'http://localhost:4555';
@@ -140,6 +140,8 @@ function reducer(state, action) {
 export const AppProvider = ({ children }) => {
 	const [state, dispatchCore] = useReducer(reducer, initialState);
 
+	const firstAddInputBox = useRef(null);
+
 	useEffect(() => {
 		(async () => {
 			const _germanNouns = (await axios.get(`${baseUrl}/germanNouns`))
@@ -273,6 +275,7 @@ export const AppProvider = ({ children }) => {
 			value={{
 				state,
 				dispatch,
+				firstAddInputBox
 			}}
 		>
 			{children}

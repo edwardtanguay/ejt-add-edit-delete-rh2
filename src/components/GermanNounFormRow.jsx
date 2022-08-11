@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { AppContext } from '../AppContext';
 
-export const GermanNounFormRow = ({ item, label, variable, isAdding }) => {
+export const GermanNounFormRow = ({ item, label, variable, isAdding, theRef }) => {
 	const { state, dispatch } = useContext(AppContext);
 
 	return (
@@ -13,6 +13,7 @@ export const GermanNounFormRow = ({ item, label, variable, isAdding }) => {
 				<input
 					type="text"
 					value={item[variable]}
+					ref={theRef}
 					onChange={(e) =>
 						dispatch({
 							type: 'changeItemRowValue',
