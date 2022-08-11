@@ -37,8 +37,15 @@ body {
 
 	.germanNounArea {
 
-		fieldset.germanNoun {
+		fieldset.addBox {
+			background: rgb(74, 97, 74);
+		}
+
+		fieldset.editBox {
 			background-color: #444;
+		}
+
+		fieldset.germanNoun {
 			margin-bottom: 1rem;
 			padding: 1rem;
 			border: 1px solid #666;
@@ -84,6 +91,7 @@ body {
 				padding: .3rem .3rem .7rem .3rem;
 				display: flex;
 				justify-content: space-between;
+				margin-top: 1rem;
 
 				.message {
 					color: #aaa;

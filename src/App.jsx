@@ -23,10 +23,13 @@ function App() {
 			<hr />
 			<p>There are {state.germanNouns.length} nouns.</p>
 			<div className="germanNounArea">
-				{state.isAdding && <ItemAddBox/>}
+				{state.isAdding && <ItemAddBox />}
 				{state.germanNouns.map((item) => {
 					return (
-						<fieldset className="germanNoun" key={String(item.id)}>
+						<fieldset
+							className="germanNoun editBox"
+							key={String(item.id)}
+						>
 							<legend>ID: {item.id}</legend>
 
 							<GermanNounFormRow

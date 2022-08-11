@@ -13,7 +13,9 @@
 - .. handle add button
 	- x when you click add, it scrolls to top and shows text
 	- x show add box 
-	- .. handle cancel button
+	- x handle cancel button
+	- .. light green to add box
 
+- on add, put cursor in first input box
 - enable only one item to be edited/delete/added at one time
 - reduce blinking at beginning: fade

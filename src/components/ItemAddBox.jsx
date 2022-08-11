@@ -9,7 +9,7 @@ export const ItemAddBox = () => {
 	const item = state.addItem;
 
 	return (
-		<fieldset className="germanNoun">
+		<fieldset className="germanNoun addBox">
 			<legend>New German Noun</legend>
 
 			<GermanNounFormRow
@@ -36,7 +36,9 @@ export const ItemAddBox = () => {
 			<div className="buttonRow">
 				<div className="message">{state.addMessage}</div>
 				<div className="buttonArea">
-					<button>Cancel</button>
+					<button onClick={() => dispatch({ type: 'clearAddBox' })}>
+						Cancel
+					</button>
 					<button>Add Item</button>
 				</div>
 			</div>

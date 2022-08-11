@@ -12,9 +12,9 @@ const initialState = {
 	addItem: {
 		article: '',
 		singular: '',
-		plural: ''
+		plural: '',
 	},
-	addMessage: ''
+	addMessage: '',
 };
 
 function reducer(state, action) {
@@ -99,6 +99,15 @@ function reducer(state, action) {
 			break;
 		case 'beginAddingItem':
 			_state.isAdding = true;
+			break;
+		case 'clearAddBox':
+			_state.isAdding = false;
+			_state.addItem = {
+				article: '',
+				singular: '',
+				plural: '',
+			};
+			break;
 	}
 	return _state;
 }
