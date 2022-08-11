@@ -21,7 +21,7 @@ function App() {
 				</button>
 			</div>
 			<hr />
-			<p>There are {state.germanNouns.length} nouns.</p>
+			<p className="infoMessage">There are {state.germanNouns.length} nouns.</p>
 			<div className="germanNounArea">
 				{state.isAdding && <ItemAddBox />}
 				{state.germanNouns.map((item) => {

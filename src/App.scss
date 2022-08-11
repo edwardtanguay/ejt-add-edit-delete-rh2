@@ -5,6 +5,20 @@ body {
 	padding: 1rem;
 	font-size: 1.5rem;
 
+	.infoMessage {
+		animation: fadein .5s ease-in;
+	}
+
+	@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+ 
+    to {
+        opacity: 1;
+    }
+}
+
 	h1 {
 		font-size: 2.6rem;
 		color: #aaa;
