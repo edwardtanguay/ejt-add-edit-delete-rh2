@@ -11,6 +11,7 @@
 - x handle delete button
 - x handle wait button
 - .. handle add button
+	- .. when you click add, it scrolls to top and shows add box 
 
 - enable only one item to be edited/delete/added at one time
 - reduce blinking at beginning: fade

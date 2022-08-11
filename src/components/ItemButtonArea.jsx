@@ -1,4 +1,15 @@
 export const ItemButtonArea = ({ item, dispatch }) => {
+	const handleAddClick = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+		dispatch({
+			type: 'beginAddingItem',
+			payload: { item },
+		});
+	};
+
 	return (
 		<>
 			<div className="buttonArea">
@@ -26,7 +37,12 @@ export const ItemButtonArea = ({ item, dispatch }) => {
 						>
 							Delete
 						</button>
-						<button disabled={item.isProcessing}>Add</button>
+						<button
+							onClick={handleAddClick}
+							disabled={item.isProcessing}
+						>
+							Add
+						</button>
 					</>
 				)}
 				{item.isEditing && (

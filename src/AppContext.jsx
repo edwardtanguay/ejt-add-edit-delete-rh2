@@ -8,6 +8,7 @@ export const AppContext = createContext();
 const initialState = {
 	count: 0,
 	germanNouns: [],
+	isAdding: false
 };
 
 function reducer(state, action) {
@@ -90,6 +91,8 @@ function reducer(state, action) {
 
 			item.isProcessing = true;
 			break;
+		case 'beginAddingItem':
+			_state.isAdding = true;
 	}
 	return _state;
 }

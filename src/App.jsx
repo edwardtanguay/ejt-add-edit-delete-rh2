@@ -22,6 +22,7 @@ function App() {
 			<hr />
 			<p>There are {state.germanNouns.length} nouns.</p>
 			<div className="germanNounArea">
+				{state.isAdding && <div>Adding item...</div>}
 				{state.germanNouns.map((item) => {
 					return (
 						<fieldset className="germanNoun" key={String(item.id)}>
@@ -48,7 +49,10 @@ function App() {
 							<div className="buttonRow">
 								<div className="message">{item.message}</div>
 
-								<ItemButtonArea dispatch={dispatch} item={item} />
+								<ItemButtonArea
+									dispatch={dispatch}
+									item={item}
+								/>
 							</div>
 						</fieldset>
 					);
