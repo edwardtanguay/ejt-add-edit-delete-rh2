@@ -237,11 +237,10 @@ export const AppProvider = ({ children }) => {
 					payload: { item },
 				});
 				try {
-					// const response = await axios.post(
-					// 	`${baseUrl}/germanNouns`,
-					// 	addItem
-					// );
-					const response = { status: 500 };
+					const response = await axios.post(
+						`${baseUrl}/germanNouns`,
+						addItem
+					);
 					if ([200, 201].includes(response.status)) {
 						dispatchCore({
 							type: 'addItem',
@@ -258,7 +257,7 @@ export const AppProvider = ({ children }) => {
 					}
 				} catch (err) {
 					dispatchCore({
-						type: 'handleFailure',
+						type: 'addHandleFailure',
 						payload: { item, message: `Error: ${err.message}` },
 					});
 				}
