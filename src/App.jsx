@@ -54,7 +54,6 @@ function App() {
 								<div className="message">{item.message}</div>
 
 								<ItemButtonArea
-									dispatch={dispatch}
 									item={item}
 								/>
 							</div>

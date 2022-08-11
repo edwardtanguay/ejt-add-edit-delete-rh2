@@ -1,4 +1,9 @@
-export const ItemButtonArea = ({ item, dispatch }) => {
+import { useContext } from 'react';
+import { AppContext } from '../AppContext';
+
+export const ItemButtonArea = ({ item }) => {
+	const { state, dispatch } = useContext(AppContext);
+
 	const handleAddClick = () => {
 		window.scrollTo({
 			top: 0,
