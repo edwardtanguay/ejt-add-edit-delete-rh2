@@ -10,11 +10,12 @@
 - x url as variable
 - x handle delete button
 - x handle wait button
-- .. handle add button
+- x handle add button
 	- x when you click add, it scrolls to top and shows text
 	- x show add box 
 	- x handle cancel button
 	- x light green to add box
+- .. handle Add Item button
 
 - on add, put cursor in first input box
 - enable only one item to be edited/delete/added at one time

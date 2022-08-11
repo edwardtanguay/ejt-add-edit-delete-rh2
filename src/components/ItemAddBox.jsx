@@ -36,10 +36,20 @@ export const ItemAddBox = () => {
 			<div className="buttonRow">
 				<div className="message">{state.addMessage}</div>
 				<div className="buttonArea">
-					<button onClick={() => dispatch({ type: 'clearAddBox' })}>
+					<button
+						disabled={item.isProcessing}
+						onClick={() => dispatch({ type: 'clearAddBox' })}
+					>
 						Cancel
 					</button>
-					<button>Add Item</button>
+					<button
+						disabled={item.isProcessing}
+						onClick={() =>
+							dispatch({ type: 'addItem', payload: { item } })
+						}
+					>
+						Add Item
+					</button>
 				</div>
 			</div>
 		</fieldset>

@@ -19,28 +19,34 @@
       "plural": "die Workshops"
     },
     {
-      "id": 4,
-      "article": "der",
-      "singular": "Workshop",
-      "plural": "die Workshops"
+      "article": "sdf",
+      "singular": "dfdf",
+      "plural": "dfdfd",
+      "id": 4
     },
     {
-      "id": 5,
-      "article": "der",
-      "singular": "Workshop",
-      "plural": "die Workshops"
+      "article": "aaa",
+      "singular": "sss",
+      "plural": "",
+      "id": 5
     },
     {
-      "id": 6,
-      "article": "der",
-      "singular": "Workshop",
-      "plural": "die Workshops"
+      "article": "aaa",
+      "singular": "sss",
+      "plural": "ppp",
+      "id": 6
     },
     {
-      "id": 7,
-      "article": "der",
-      "singular": "Workshop",
-      "plural": "die Workshops"
+      "article": "111",
+      "singular": "222",
+      "plural": "333",
+      "id": 7
+    },
+    {
+      "article": "the eighth one",
+      "singular": "",
+      "plural": "",
+      "id": 8
     }
   ]
 }
