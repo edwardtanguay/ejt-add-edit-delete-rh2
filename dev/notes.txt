@@ -9,6 +9,8 @@
 - x handle save button
 - x url as variable
 - x handle delete button
-- handle wait button
+- x handle wait button
+- .. handle add button
 
 - enable only one item to be edited/delete/added at one time
+- reduce blinking at beginning: fade
