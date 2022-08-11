@@ -13,7 +13,11 @@ const initialState = {
 		article: '',
 		singular: '',
 		plural: '',
-		originalItem: {},
+		originalItem: {
+			article: '',
+			singular: '',
+			plural: '',
+		},
 	},
 	addMessage: '',
 };
@@ -81,6 +85,14 @@ function reducer(state, action) {
 			item.singular = originalItem.singular;
 			item.plural = originalItem.plural;
 			break;
+		case 'addHandleFailure':
+			item = action.payload.item;
+			originalItem = item.originalItem;
+			message = action.payload.message;
+
+			item.isProcessing = false;
+			_state.addMessage = message;
+			break;
 		case 'askIfSureForDelete':
 			item = action.payload.item;
 
@@ -108,6 +120,7 @@ function reducer(state, action) {
 				singular: '',
 				plural: '',
 			};
+			_state.addMessage = '';
 			break;
 		case 'addItem':
 			item = action.payload.item;
@@ -224,10 +237,11 @@ export const AppProvider = ({ children }) => {
 					payload: { item },
 				});
 				try {
-					const response = await axios.post(
-						`${baseUrl}/germanNouns`,
-						addItem
-					);
+					// const response = await axios.post(
+					// 	`${baseUrl}/germanNouns`,
+					// 	addItem
+					// );
+					const response = { status: 500 };
 					if ([200, 201].includes(response.status)) {
 						dispatchCore({
 							type: 'addItem',
@@ -235,7 +249,7 @@ export const AppProvider = ({ children }) => {
 						});
 					} else {
 						dispatchCore({
-							type: 'handleFailure',
+							type: 'addHandleFailure',
 							payload: {
 								item,
 								message: `API Error: ${response.status}`,

@@ -15,7 +15,8 @@
 	- x show add box 
 	- x handle cancel button
 	- x light green to add box
-- .. handle Add Item button
+- x handle Add Item button
+- .. test errors on add
 
 - on add, put cursor in first input box
 - enable only one item to be edited/delete/added at one time
