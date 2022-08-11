@@ -3,6 +3,7 @@ import { AppContext } from './AppContext';
 import { GermanNounFormRow } from './components/GermanNounFormRow';
 import './App.scss';
 import { ItemButtonArea } from './components/ItemButtonArea';
+import { ItemAddBox } from './components/ItemAddBox';
 
 function App() {
 	const { state, dispatch } = useContext(AppContext);
@@ -22,7 +23,7 @@ function App() {
 			<hr />
 			<p>There are {state.germanNouns.length} nouns.</p>
 			<div className="germanNounArea">
-				{state.isAdding && <div>Adding item...</div>}
+				<ItemAddBox />
 				{state.germanNouns.map((item) => {
 					return (
 						<fieldset className="germanNoun" key={String(item.id)}>
