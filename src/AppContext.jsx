@@ -70,6 +70,7 @@ function reducer(state, action) {
 			item = action.payload.item;
 
 			item.isEditing = false;
+			item.isProcessing = false;
 			item.message = '';
 			break;
 		case 'handleFailure':

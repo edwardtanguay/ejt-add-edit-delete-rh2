@@ -2,7 +2,7 @@
   "germanNouns": [
     {
       "id": 1,
-      "article": "die",
+      "article": "das",
       "singular": "Notiz",
       "plural": "die Notizen"
     },
@@ -17,48 +17,6 @@
       "article": "der",
       "singular": "Workshop",
       "plural": "die Workshops"
-    },
-    {
-      "article": "sdf",
-      "singular": "dfdf",
-      "plural": "dfdfd",
-      "id": 4
-    },
-    {
-      "article": "aaa",
-      "singular": "sss",
-      "plural": "",
-      "id": 5
-    },
-    {
-      "article": "aaa",
-      "singular": "sss",
-      "plural": "ppp",
-      "id": 6
-    },
-    {
-      "article": "111",
-      "singular": "222",
-      "plural": "333",
-      "id": 7
-    },
-    {
-      "article": "the eighth one",
-      "singular": "",
-      "plural": "",
-      "id": 8
-    },
-    {
-      "article": "sdf",
-      "singular": "df",
-      "plural": "dfdf",
-      "id": 9
-    },
-    {
-      "article": "sd",
-      "singular": "sdd",
-      "plural": "ddddddddddddddddddddddd",
-      "id": 10
     }
   ]
 }
